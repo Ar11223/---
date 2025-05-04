@@ -1,0 +1,148 @@
+<view class="container">
+  <view class="form-section">
+    <!-- 活动名称 -->
+    <view class="form-item">
+      <text class="label required">活动名称</text>
+      <input 
+        class="input" 
+        type="text" 
+        placeholder="请输入活动名称" 
+        placeholder-class="placeholder"
+        value="{{activityName}}"
+        bindinput="onActivityNameInput"
+      />
+    </view>
+
+    <!-- 活动时间 -->
+    <view class="form-item">
+      <text class="label required">活动时间</text>
+      <picker 
+        mode="date" 
+        value="{{activityDate}}"
+        start="2024-01-01"
+        end="2025-12-31"
+        bindchange="onDateChange"
+      >
+        <view class="picker">
+          <text class="{{activityDate ? 'selected' : 'placeholder'}}">
+            {{activityDate || '请选择活动日期'}}
+          </text>
+          <image class="arrow" src="/static/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 活动地点 -->
+    <view class="form-item">
+      <text class="label required">活动地点</text>
+      <view class="location-input" bindtap="chooseLocation">
+        <input 
+          class="input" 
+          type="text" 
+          placeholder="请选择活动地点" 
+          placeholder-class="placeholder"
+          value="{{locationName}}"
+          disabled
+        />
+        <image class="location-icon" src="/static/images/location.png" mode="aspectFit"></image>
+      </view>
+    </view>
+
+    <!-- 参与人数 -->
+    <view class="form-item">
+      <text class="label required">参与人数</text>
+      <view class="number-input">
+        <view class="number-btn minus" bindtap="decreaseNumber">-</view>
+        <input 
+          class="number" 
+          type="number" 
+          value="{{maxParticipants}}"
+          bindinput="onNumberInput"
+        />
+        <view class="number-btn plus" bindtap="increaseNumber">+</view>
+      </view>
+    </view>
+
+    <!-- 抽签时间 -->
+    <view class="form-item">
+      <text class="label required">抽签时间</text>
+      <view class="time-range">
+        <picker 
+          mode="time" 
+          value="{{startTime}}"
+          bindchange="onStartTimeChange"
+        >
+          <view class="time-picker">
+            <text class="{{startTime ? 'selected' : 'placeholder'}}">
+              {{startTime || '开始时间'}}
+            </text>
+          </view>
+        </picker>
+        <text class="separator">至</text>
+        <picker 
+          mode="time" 
+          value="{{endTime}}"
+          bindchange="onEndTimeChange"
+        >
+          <view class="time-picker">
+            <text class="{{endTime ? 'selected' : 'placeholder'}}">
+              {{endTime || '结束时间'}}
+            </text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 抽签选项 -->
+    <view class="form-item">
+      <text class="label required">抽签选项</text>
+      <view class="options-container">
+        <view class="option-item" wx:for="{{options}}" wx:key="index">
+          <input 
+            class="option-input" 
+            type="text" 
+            placeholder="请输入选项" 
+            placeholder-class="placeholder"
+            value="{{item}}"
+            data-index="{{index}}"
+            bindinput="onOptionInput"
+          />
+          <image 
+            class="delete-icon" 
+            src="/static/images/delete.png" 
+            mode="aspectFit"
+            data-index="{{index}}"
+            bindtap="deleteOption"
+          ></image>
+        </view>
+        <view class="add-option" bindtap="addOption">
+          <image class="add-icon" src="/static/images/add.png" mode="aspectFit"></image>
+          <text>添加选项</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 活动描述 -->
+    <view class="form-item">
+      <text class="label">活动描述</text>
+      <textarea 
+        class="textarea" 
+        placeholder="请输入活动描述（选填）" 
+        placeholder-class="placeholder"
+        value="{{description}}"
+        bindinput="onDescriptionInput"
+      ></textarea>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button 
+      class="submit-btn {{canSubmit ? '' : 'disabled'}}" 
+      bindtap="submitForm"
+      disabled="{{!canSubmit}}"
+    >
+      创建活动
+    </button>
+  </view>
+</view> 

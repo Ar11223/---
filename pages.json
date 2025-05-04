@@ -1,0 +1,91 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "考场抽签",
+				"navigationBarBackgroundColor": "#007AFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#007AFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/activity/create",
+			"style": {
+				"navigationBarTitleText": "创建活动",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/activity/join",
+			"style": {
+				"navigationBarTitleText": "参与抽签",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/activity/history",
+			"style": {
+				"navigationBarTitleText": "历史记录",
+				"navigationBarBackgroundColor": "#007AFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/activity/detail",
+			"style": {
+				"navigationBarTitleText": "活动详情",
+				"navigationBarBackgroundColor": "#007AFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/activity/list",
+			"style": {
+				"navigationBarTitleText": "活动列表",
+				"navigationBarBackgroundColor": "#007AFF",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/activity/select",
+			"style": {
+				"navigationBarTitleText": "选择活动",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		},
+		{
+			"path": "pages/activity/results",
+			"style": {
+				"navigationBarTitleText": "抽签结果",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "考场抽签",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

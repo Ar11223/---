@@ -1,0 +1,12 @@
+{
+  "name": "importAllowList",
+  "version": "1.0.0",
+  "description": "导入允许名单云函数",
+  "main": "index.js",
+  "dependencies": {},
+  "cloudfunction-config": {
+    "timeout": 5000,
+    "memorySize": 256,
+    "triggers": []
+  }
+} 

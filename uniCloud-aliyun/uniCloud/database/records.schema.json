@@ -1,0 +1,56 @@
+{
+	"bsonType": "object",
+	"required": ["activityId", "userId", "seatNumber"],
+	"permission": {
+		"read": "doc.userId == auth.uid || get('activities', doc.activityId).creator == auth.uid",
+		"create": "auth.uid != null",
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"activityId": {
+			"bsonType": "string",
+			"description": "活动ID",
+			"title": "活动ID",
+			"foreignKey": "activities._id"
+		},
+		"userId": {
+			"bsonType": "string",
+			"description": "用户ID",
+			"title": "用户ID"
+		},
+		"userInfo": {
+			"bsonType": "object",
+			"description": "用户填写的信息",
+			"title": "用户信息"
+		},
+		"seatNumber": {
+			"bsonType": "string",
+			"description": "座位号",
+			"title": "座位号"
+		},
+		"createTime": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"title": "创建时间"
+		}
+	},
+	"indexes": [
+		{
+			"IndexName": "activity_user_index",
+			"MgoKeySchema": {
+				"MgoIndexKeys": [{
+					"Name": "activityId",
+					"Direction": "1"
+				}, {
+					"Name": "userId",
+					"Direction": "1"
+				}],
+				"MgoIsUnique": true
+			}
+		}
+	]
+} 

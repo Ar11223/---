@@ -1,0 +1,132 @@
+{
+	"bsonType": "object",
+	"required": ["name", "time", "location", "creator", "status"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": "doc.creator == auth.uid",
+		"delete": "doc.creator == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"name": {
+			"bsonType": "string",
+			"description": "活动名称",
+			"title": "活动名称"
+		},
+		"time": {
+			"bsonType": "string",
+			"description": "活动时间",
+			"title": "活动时间"
+		},
+		"location": {
+			"bsonType": "string",
+			"description": "活动地点",
+			"title": "活动地点"
+		},
+		"description": {
+			"bsonType": "string",
+			"description": "活动说明",
+			"title": "活动说明"
+		},
+		"maxParticipants": {
+			"bsonType": "int",
+			"description": "最大参与人数",
+			"title": "最大参与人数"
+		},
+		"options": {
+			"bsonType": "array",
+			"description": "抽签选项",
+			"title": "抽签选项",
+			"items": {
+				"bsonType": "string"
+			}
+		},
+		"startTime": {
+			"bsonType": "string",
+			"description": "允许抽签开始时间",
+			"title": "允许抽签开始时间"
+		},
+		"endTime": {
+			"bsonType": "string",
+			"description": "允许抽签结束时间",
+			"title": "允许抽签结束时间"
+		},
+		"requiredFields": {
+			"bsonType": "array",
+			"description": "需要填写的信息字段",
+			"title": "需要填写的信息",
+			"items": {
+				"bsonType": "object",
+				"properties": {
+					"name": {
+						"bsonType": "string",
+						"description": "字段名称"
+					},
+					"type": {
+						"bsonType": "string",
+						"description": "字段类型",
+						"enum": ["text", "number", "select"]
+					},
+					"required": {
+						"bsonType": "bool",
+						"description": "是否必填"
+					},
+					"options": {
+						"bsonType": "array",
+						"description": "选项（仅type为select时有效）",
+						"items": {
+							"bsonType": "string"
+						}
+					}
+				}
+			}
+		},
+		"useCode": {
+			"bsonType": "bool",
+			"description": "是否使用口令",
+			"title": "是否使用口令"
+		},
+		"code": {
+			"bsonType": "string",
+			"description": "活动口令",
+			"title": "活动口令"
+		},
+		"allowList": {
+			"bsonType": "array",
+			"description": "允许参与的人员名单",
+			"title": "允许参与的人员名单",
+			"items": {
+				"bsonType": "string"
+			}
+		},
+		"creator": {
+			"bsonType": "string",
+			"description": "创建者ID",
+			"title": "创建者"
+		},
+		"status": {
+			"bsonType": "string",
+			"description": "活动状态：ongoing-进行中，ended-已结束",
+			"title": "活动状态",
+			"enum": ["ongoing", "ended"]
+		},
+		"participants": {
+			"bsonType": "array",
+			"description": "参与者ID列表",
+			"title": "参与者"
+		},
+		"createTime": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"title": "创建时间"
+		},
+		"updateTime": {
+			"bsonType": "timestamp",
+			"description": "更新时间",
+			"title": "更新时间"
+		}
+	}
+} 

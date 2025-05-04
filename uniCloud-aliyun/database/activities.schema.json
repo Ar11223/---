@@ -1,0 +1,88 @@
+{
+	"bsonType": "object",
+	"required": ["title", "location", "creatorId"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": "doc.creatorId == auth.uid",
+		"delete": "doc.creatorId == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"title": {
+			"bsonType": "string",
+			"description": "活动标题",
+			"title": "标题"
+		},
+		"description": {
+			"bsonType": "string",
+			"description": "活动描述",
+			"title": "描述"
+		},
+		"location": {
+			"bsonType": "string",
+			"description": "活动地点",
+			"title": "地点"
+		},
+		"creatorId": {
+			"bsonType": "string",
+			"description": "创建者ID",
+			"foreignKey": "uni-id-users._id"
+		},
+		"maxParticipants": {
+			"bsonType": "int",
+			"description": "最大参与人数",
+			"title": "最大参与人数"
+		},
+		"options": {
+			"bsonType": "array",
+			"description": "抽签选项",
+			"title": "抽签选项"
+		},
+		"lotteryStartTime": {
+			"bsonType": "timestamp",
+			"description": "抽签开始时间",
+			"title": "抽签开始时间"
+		},
+		"lotteryEndTime": {
+			"bsonType": "timestamp",
+			"description": "抽签结束时间",
+			"title": "抽签结束时间"
+		},
+		"requiredFields": {
+			"bsonType": "array",
+			"description": "必填信息字段",
+			"title": "必填信息"
+		},
+		"useCode": {
+			"bsonType": "bool",
+			"description": "是否使用验证码",
+			"title": "使用验证码"
+		},
+		"code": {
+			"bsonType": "string",
+			"description": "验证码",
+			"title": "验证码"
+		},
+		"allowList": {
+			"bsonType": "array",
+			"description": "允许参与的人员名单",
+			"title": "允许名单"
+		},
+		"status": {
+			"bsonType": "int",
+			"description": "活动状态：0-进行中，1-已结束",
+			"title": "状态"
+		},
+		"createTime": {
+			"bsonType": "timestamp",
+			"description": "创建时间"
+		},
+		"updateTime": {
+			"bsonType": "timestamp",
+			"description": "更新时间"
+		}
+	}
+} 

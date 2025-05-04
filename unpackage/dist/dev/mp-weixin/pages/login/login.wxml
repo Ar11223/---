@@ -1,0 +1,1 @@
+<view class="container"><view class="login-box"><image class="logo" src="/static/images/logo.png" mode="aspectFit"></image><text class="title">考场抽签</text><text class="subtitle">请登录后继续使用</text><button class="login-btn" open-type="getUserProfile" data-event-opts="{{[['tap',[['handleLogin',['$event']]]]]}}" bindtap="__e">微信登录</button></view></view>

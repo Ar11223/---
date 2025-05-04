@@ -1,0 +1,60 @@
+{
+	"bsonType": "object",
+	"required": ["activityId", "userId", "seatNumber"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"activityId": {
+			"bsonType": "string",
+			"description": "活动ID",
+			"title": "活动"
+		},
+		"userId": {
+			"bsonType": "string",
+			"description": "用户ID",
+			"title": "用户"
+		},
+		"seatNumber": {
+			"bsonType": "int",
+			"description": "座位号",
+			"title": "座位号",
+			"minimum": 1
+		},
+		"userInfo": {
+			"bsonType": "object",
+			"description": "用户提交的信息",
+			"title": "用户信息",
+			"properties": {
+				"name": {
+					"bsonType": "string",
+					"description": "姓名"
+				},
+				"phone": {
+					"bsonType": "string",
+					"description": "手机号"
+				},
+				"email": {
+					"bsonType": "string",
+					"description": "邮箱"
+				},
+				"customFields": {
+					"bsonType": "object",
+					"description": "自定义字段",
+					"additionalProperties": true
+				}
+			}
+		},
+		"createTime": {
+			"bsonType": "timestamp",
+			"description": "创建时间",
+			"title": "创建时间"
+		}
+	}
+} 
